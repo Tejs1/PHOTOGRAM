@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.css';
 import Post from './Post';
+import {db} from './firebase';
 
 
 function App() {
-    const [posts,setposts] = useState
-    ([
-    {
-        username: "kartik",
-        caption: "this works",
-        imageUrl: "https://reactjs.org/logo-og.png" 
-    },
-    {
-        username: "kartik",
-        caption: "this works",
-        imageUrl: "https://reactjs.org/logo-og.png"
-    }
-]);
+    const [posts, setPosts] = useState([]);
+//  useEffect ->runs a piece of code based on a specific condition   
+    
+    useEffect(() => {
+    // this is where code runs
+        db.collection('posts').onSnapshot(snapshot => {
+        // every time new post is added, this code fires up
+        setPosts(snapshot.docs.map(doc => doc.data()));
+    })
+    //If present, effect will only activate if the values in the list change.
+    }, []);
+
     return (
         <div className ="app">
             {/* HEADER */}

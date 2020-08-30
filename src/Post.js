@@ -10,14 +10,15 @@ function Post({ username, caption, imageUrl}) {
             <Avatar 
                 className="post__avatar"
                 alt='tejs'
-                src="static/images/avatar/1.jpg"
+                src="static/images/avatar/1.jpg" 
+                
             />
             
             <h3>{username}</h3>
             </div>
             {/* image */}
-            <img className="post__image"
-                src={imageUrl}
+            <img className="post__image"alt=""
+                src={imageUrl}kt
             />
 
             {/* username + caption */}
