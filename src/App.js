@@ -32,7 +32,7 @@ function getModalStyle() {
 function App() {
     const classes = useStyles();
     const [modalStyle] = useState(getModalStyle);
-    
+    const [openSignIn, setOpenSignIn] = useState(false);
     const [posts, setPosts] = useState([]);
     const [open,setOpen] =useState(false);
     const [username,setUsername] =useState('');
@@ -45,15 +45,6 @@ function App() {
                 //user has logged in...
                 console.log(authUser);
                 setUser(authUser);
-
-                if (authUser.displayName) {
-                    // dont update username
-                } else {
-                    // if we just created someone
-                    return authUser.updateProfile({
-                        displayName: username,
-                    });
-                }
             } else {
                 //user has logged out...
                 setUser(null);
@@ -80,12 +71,31 @@ function App() {
     
     const signUp =(event) => {
         event.preventDefault();
-        auth.createUserWithEmailAndPassword(email, password)
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then((authUser) => {
+           return authUser.user.updateProfile({
+                displayName: username
+            })
+        })
         .catch((error) => alert(error.message));
+        setOpen(false);
     }
-
+    const signIn = (event) => {
+        event.preventDefault();
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .catch((error) => alert(error.message));
+        setOpenSignIn(false);
+    }
     return (
         <div className ="app">
+        
+        {/* Caption Input */}
+        {/* File picker */}
+        {/* Post button */}
+
+
         <Modal
             open={open}
             onClose={() => setOpen(false)}
@@ -117,7 +127,37 @@ function App() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Button onClick={signUp}>Sign Up</Button>
+                    <Button type="submit" onClick={signUp}>Sign Up</Button>
+             </form>
+            </div>
+        </Modal>
+        {/* openSignIn Model */}
+        <Modal
+            open={openSignIn}
+            onClose={() => setOpenSignIn(false)}
+        >
+            <div style={modalStyle} className={classes.paper}>
+             <form className="app__signup">
+                <center>
+                    <img
+                    className="app__headerImage"
+                    src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                    alt=""
+                    /> 
+                </center> 
+                    <Input 
+                        placeholder="email"
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <Input 
+                        placeholder="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Button type="submit" onClick={signIn}>Sign In</Button>
              </form>
             </div>
         </Modal>
@@ -130,7 +170,14 @@ function App() {
                     alt=""
                     />
             </div>
-            <Button onClick={()=> setOpen(true)}>Sign Up</Button>
+            {user ? (
+                <Button onClick={()=> auth.signOut()}>Logout</Button>
+            ): ( <div className="app__loginContainer">
+                <Button onClick={()=> setOpenSignIn(true)}>Sign In</Button>
+                <Button onClick={()=> setOpen(true)}>Sign Up</Button>
+                </div>
+                
+            )}
             <h1>HI there whats up lets start </h1>
             {/* POST */}
             {
