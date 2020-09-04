@@ -34,11 +34,12 @@ function App() {
     const [modalStyle] = useState(getModalStyle);
     const [openSignIn, setOpenSignIn] = useState(false);
     const [posts, setPosts] = useState([]);
-    const [open,setOpen] =useState(false);
-    const [username,setUsername] =useState('');
-    const [password,setPassword] =useState('');
-    const [email,setEmail] =useState('');
-    const [user,setUser] =useState(null);
+    const [open,setOpen] = useState(false);
+    const [username,setUsername] = useState('');
+    const [password,setPassword] = useState('');
+    const [email,setEmail] = useState('');
+    const [user,setUser] = useState(null);
+   
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
