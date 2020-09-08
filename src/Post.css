@@ -28,6 +28,10 @@
     margin-top: 10px;
 }
 
+.post__comments{
+    padding: 1rem;
+}
+
 .post__input{
     flex: 1;
     border: none;
@@ -37,7 +41,7 @@
 .post__button{
     flex: 0;
     border: none;
-    color: #6082a3;
+    color: #0095F6;
     background-color: transparent;
-    border-top: 1px solid lightgrey;
+    border-top: 2px solid lightgrey;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState,useEffect } from 'react';
 import './Post.css';
 import Avatar from '@material-ui/core/Avatar';
 import { db } from './firebase';
@@ -6,6 +6,7 @@ import { db } from './firebase';
 function Post({postId, username, caption, imageUrl}) {
    const [comments, setComments] = useState([]);
    const [comment, setComment] = useState('');
+   
    useEffect(() => {
        let unsubscribe;
        if (postId) {
@@ -14,7 +15,7 @@ function Post({postId, username, caption, imageUrl}) {
             .doc(postId)
             .collection("comments")
             .onSnapshot((snapshot) => {
-                setComments(snapshot.docs.map((doc)=> doc.data()));
+                setComments(snapshot.docs.map((doc) => doc.data()));
             });
        }
 
@@ -38,7 +39,7 @@ function Post({postId, username, caption, imageUrl}) {
                 
             />
             
-            <h3>{username}</h3>
+             <h3>{username}</h3>
             </div>
             {/* image */}
             <img className="post__image"alt=""
@@ -64,7 +65,7 @@ function Post({postId, username, caption, imageUrl}) {
                 className="post__input"
                 type="text"
                 placeholder="Add a comment..."
-                value={Comment}
+                value={comment}
                 onChange={(e) => setComment(e.target.value)}
             /> 
             <button
@@ -75,7 +76,7 @@ function Post({postId, username, caption, imageUrl}) {
             >
                 Post
             </button>
-                </form>
+            </form>
         </div>
     )
 }
