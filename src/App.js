@@ -183,11 +183,11 @@ function App() {
             </div>
               
                 {/* POST */}
-        <div className="app__posts">
+            <div className="app__posts">
             <div className="app__postleft" >
                 {
                     posts.map(({id, post}) => (
-                     <Post key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
+                     <Post key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
                  ))
                 }
             </div>
@@ -207,6 +207,7 @@ function App() {
                 onFailure={() => {}}
             />
             </div>
+            
 
         </div>
  
@@ -214,7 +215,17 @@ function App() {
         {user?.displayName ? (
                 <ImageUpload username={user.displayName} />
             ): (
-                <h3>Sorry you need to login to Upload</h3>
+                <div className="imageupload">
+                {/* Caption Input */}
+                {/* File picker */}
+                {/* Post button */}
+                
+                <input type="text" placeholder='You need to SignIn to Upload'  />
+                <input type="file"  />
+                <Button type="submit">
+                  Upload
+                </Button>
+            </div>
             )}
         </div>
     );
