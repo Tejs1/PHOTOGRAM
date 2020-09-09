@@ -1,8 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Deployed version
+https://bit.ly/3k3BgVa
+
 ## Video Tutorial
 https://youtu.be/dh1Q4320DNI
-## Available Scripts
-### Clone wit Github desktop
+
+### Clone with Github desktop
 1. open "x-github-client://openRepo/https://github.com/Tejs1/PHOTOGRAM"
 2. clone
 3. Open in Editor
@@ -12,6 +16,8 @@ https://youtu.be/dh1Q4320DNI
 2. extract
 3. Open in Editor
 
+### Note
+You will need Node.js installed on your system
 ### Open Terminal
 
 ### `cd /PHOTOGRAM`
