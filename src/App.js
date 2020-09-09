@@ -224,7 +224,6 @@ function App() {
                 {/* Post button */}
                 
                 <input type="text" placeholder='You need to SignIn to Upload'  />
-                <input type="file"  />
                 <Button type="submit">
                   Upload
                 </Button>
