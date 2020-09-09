@@ -43,7 +43,7 @@ function Post({postId, user, username, caption, imageUrl}) {
             <div className="post__header">
             <Avatar 
                 className="post__avatar"
-                alt='tejs'
+                alt={username}
                 src="static/images/avatar/1.jpg" 
                 
             />
@@ -52,7 +52,7 @@ function Post({postId, user, username, caption, imageUrl}) {
             </div>
             {/* image */}
             <img className="post__image"alt=""
-                src={imageUrl}kt
+                src={imageUrl}
             />
 
             {/* username + caption */}

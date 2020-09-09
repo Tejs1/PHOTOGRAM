@@ -9,6 +9,7 @@ import ImageUpload from './ImageUpload';
 import './ImageUpload.css';
 import InstagramEmbed from 'react-instagram-embed';
 
+
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -97,6 +98,7 @@ function App() {
     return (
         <div className ="app">
         <Modal
+            className="app__modal"
             open={open}
             onClose={() => setOpen(false)}
         >
@@ -134,6 +136,7 @@ function App() {
             
             {/* openSignIn Model */}   
         <Modal
+            className="app__model"
             open={openSignIn}
             onClose={() => setOpenSignIn(false)}
         >
@@ -193,7 +196,7 @@ function App() {
             </div>
 
 
-            <div className="app__postright" >
+            {/* <div className="app__postright" >
             <InstagramEmbed
                 url='https://www.instagram.com/p/CEHVLeUgyEw'
                 maxWidth={200}
@@ -206,7 +209,7 @@ function App() {
                 onAfterRender={() => {}}
                 onFailure={() => {}}
             />
-            </div>
+            </div> */}
             
 
         </div>
