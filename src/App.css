@@ -14,11 +14,11 @@
   justify-content: center;
 }
 
-/* .app__postright{
+ .app__postright{
  margin-left: 20px;
  grid-row: 1/2;
  min-width: 5%;
-} */
+} 
 .app__postleft{
 grid-row: 1 / 2;
 }
