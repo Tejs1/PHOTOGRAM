@@ -7,7 +7,7 @@ import Modal from '@material-ui/core/Modal';
 import { Button, Input } from '@material-ui/core';
 import ImageUpload from './ImageUpload';
 import './ImageUpload.css';
-import InstagramEmbed from 'react-instagram-embed';
+
 
 
 function getModalStyle() {
@@ -173,6 +173,25 @@ function App() {
                     src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
                     alt=""
                     />
+
+            <div>
+                    {user? (
+                            <ImageUpload username={user.displayName} />
+                        ): (
+                            <div className="imageupload">
+                            {/* Caption Input */}
+                            {/* File picker */}
+                            {/* Post button */}
+                            
+                            <input type="text" placeholder='You need SignIn to'  />
+                            <Button className="upload__button" type="submit">
+                            Upload
+                            </Button>
+                        </div>
+                        )}
+            </div>
+
+            
                
                
             {user ? 
@@ -196,39 +215,11 @@ function App() {
             </div>
 
 
-            { <div className="app__postright" >
-            <InstagramEmbed
-                url='https://www.instagram.com/p/CEHVLeUgyEw'
-                maxWidth={200}
-                hideCaption={false}
-                containerTagName='div'
-                protocol=''
-                injectScript
-                onLoading={() => {}}
-                onSuccess={() => {}}
-                onAfterRender={() => {}}
-                onFailure={() => {}}
-            />
-            </div> }
-            
-
         </div>
  
         {/* Image Upload button */}
-        {user?.displayName ? (
-                <ImageUpload username={user.displayName} />
-            ): (
-                <div className="imageupload">
-                {/* Caption Input */}
-                {/* File picker */}
-                {/* Post button */}
-                
-                <input type="text" placeholder='You need to SignIn to Upload'  />
-                <Button type="submit">
-                  Upload
-                </Button>
-            </div>
-            )}
+
+       
         </div>
     );
 }

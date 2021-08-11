@@ -49,23 +49,25 @@ function ImageUpload({username}) {
           
             setProgress(0);
             setCaption("");
-            setImage(null);
+            setImage("");
           });       
       }
     );
   };
  
   return (
-    <div className="imageupload">
+    <div className="imageuploadd">
         {/* Caption Input */}
         {/* File picker */}
         {/* Post button */}
         <progress className="imageupload__progress" value={progress} max="100" />
-        <input type="text" placeholder='Enter a caption...' onChange={event => setCaption(event.target.value)} value={caption} />
-        <input type="file" onChange={handleChange} />
-        <Button onClick={handleUpload}>
+        <input type="text" placeholder='Enter a caption...' onChange={event => setCaption(event.target.value)} value={caption} />  
+      <div>      
+        <input type="file" id="fileControl" onChange={handleChange} />
+        <Button size='small' onClick={handleUpload}>
           Upload
         </Button>
+      </div>
     </div>
   )
 }

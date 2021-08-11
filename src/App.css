@@ -14,21 +14,15 @@
   justify-content: center;
 }
 
- .app__postright{
- margin-left: 20px;
- grid-row: 1/2;
- min-width: 5%;
-} 
-.app__postleft{
-grid-row: 1 / 2;
-}
 
 .app__header  {
   position: sticky;
   top: 0%;
   z-index: 1;
   background-color:white;
-  padding: 1%;
+  padding: 0%;
+  padding-left: 1% ;
+  padding-right: 1% ;
   border-bottom:1px solid lightgrey;
   object-fit: contain;
   display: flex;
@@ -43,3 +37,22 @@ grid-row: 1 / 2;
   flex-direction: column;
 }
 
+.imageupload{
+padding-top: 2%;
+padding-right: 5% ;
+}
+
+.imageupload__button{
+  position: sticky;
+  top: 0%;
+}
+.upload__button{
+  margin: 0%;
+  padding-top: 0%;
+  background-color: rgb(33, 10, 90);
+}
+
+.app__loginContainer{
+  padding: 0px;
+  align-items: left;
+}
